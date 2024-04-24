@@ -3,10 +3,17 @@
 import time
 import bme680
 from Adafruit_IO import Client, RequestError
+from dotenv import load_dotenv
+import os
 
+load_dotenv()  # load environment variables API key from .env file. 
+# If you are adapting this for your own project, then either setup your own .env file or comment this out and put 
+# your credentials in the commented out bit below
+ADAFRUIT_IO_KEY = os.getenv('ADAFRUIT_IO_KEY')
+ADAFRUIT_IO_USERNAME = os.getenv('ADAFRUIT_IO_USERNAME')
 # Adafruit IO credentials
-ADAFRUIT_IO_USERNAME = 'your_username'
-ADAFRUIT_IO_KEY = 'your_adafruit_io_key'
+# ADAFRUIT_IO_USERNAME = 'your_username'
+# ADAFRUIT_IO_KEY = 'your_adafruit_io_key'
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 print("""temperature-pressure-humidity.py - Displays temperature, pressure, and humidity.
